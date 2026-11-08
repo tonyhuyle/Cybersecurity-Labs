@@ -1,0 +1,13 @@
+Get-Module Microsoft.Graph* -ListAvailable | Select-Object Name, Version
+
+Install-Module Microsoft.Graph.Authentication, Microsoft.Graph.Users, Microsoft.Graph.Groups -Scope CurrentUser -Repository PSGallery
+
+Connect-MgGraph -Scopes "User.Read.All","Group.Read.All" -UseDeviceCode -ContextScope Process
+
+Get-MgContext | Select-Object Account, TenantId, AuthType, Scopes
+
+Get-MgUser -All
+
+Get-MgUser -All ` -Property "DisplayName, UserPrincipalName,AccountEnabled,UserType, CreatedDateTime" |
+Select-Object DisplayName, UserPrinciaplName, AccountEnabled, UserType, CreatedDateTime |
+Format-Table -AutoSize
