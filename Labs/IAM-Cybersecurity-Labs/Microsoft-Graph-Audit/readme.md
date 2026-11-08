@@ -72,13 +72,13 @@ The disabled account was flagged for further investigation into retained access 
 
 These results are preliminary inventory observations, not confirmed security vulnerabilities.
 
-## Evidence
+## Images
 
-- `evidence/tenant-info.png`
-- `evidence/graph-modules.png`
-- `evidence/graph-auth.png`
-- `evidence/user-inventory.png`
-- `evidence/account-status.png`
+- `Images/tenant-info.png`
+- `Images/graph-modules.png`
+- `Images/graph-auth.png`
+- `Images/user-inventory.png`
+- `Images/account-status.png`
 
 ## Project Status
 
