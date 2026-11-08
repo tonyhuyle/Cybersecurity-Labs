@@ -72,13 +72,37 @@ The disabled account was flagged for further investigation into retained access 
 
 These results are preliminary inventory observations, not confirmed security vulnerabilities.
 
-## Images
+## Audit Evidence
 
-- `Images/tenant-info.png`
-- `Images/graph-modules.png`
-- `Images/graph-auth.png`
-- `Images/user-inventory.png`
-- `Images/account-status.png`
+### 1. Entra ID Environment Overview
+
+The assessment environment contains 7 user accounts, 9 groups, and 4 enterprise applications.
+
+![Tenant Overview](Images/tenant-info.png)
+
+<br><br>
+
+### 2. Microsoft Graph Authentication
+
+Verified delegated Microsoft Graph authentication and the permissions available for read-only identity enumeration.
+
+![Graph Authentication](Images/graph-auth.png)
+
+<br><br>
+
+### 3. User Account Inventory
+
+Enumerated Entra ID user accounts using Microsoft Graph PowerShell, collecting account status, user type, and creation timestamps.
+
+![User Inventory](Images/user-inventory.png)
+
+<br><br>
+
+### 4. Account Status Review
+
+Identified 6 enabled accounts and 1 disabled account to establish a baseline for subsequent identity security assessments.
+
+![Account Status](Images/account-status.png)
 
 ## Project Status
 
