@@ -6,7 +6,7 @@ This project demonstrates a hands-on Identity and Access Management (IAM) securi
 
 The objective is to inventory cloud identities, analyze account configurations, inspect access assignments, and identify potential identity security risks within a simulated enterprise environment.
 
-The lab uses an existing Microsoft Entra ID tenant representing a fictional financial services organization, Northstar Financial Services.
+The lab uses an existing Microsoft Entra ID tenant representing a fictional financial services organization, THL.
 
 ## Technologies Used
 
@@ -107,9 +107,3 @@ Identified 6 enabled accounts and 1 disabled account to establish a baseline for
 ## Project Status
 
 **In progress:** Account status analysis completed. Group membership and access assignment investigations are next.
-
-## Security Considerations
-
-The exercises use read-only Microsoft Graph operations. Sensitive account identifiers are redacted from evidence intended for public distribution.
-
-Administrative permissions and OAuth permission scopes are considered separately when evaluating access.
