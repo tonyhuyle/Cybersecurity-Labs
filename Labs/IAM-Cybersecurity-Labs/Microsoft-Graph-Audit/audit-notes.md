@@ -17,7 +17,10 @@
 | Microsoft Graph SDK | 2.41.2 |
 | Authentication | Delegated OAuth 2.0 |
 
-**Evidence:** `tenant-info.png`, `graph-modules.png`, `graph-auth.png`
+**Evidence:** 
+- [Tenant Information](../Images/tenant-info.png)
+- [Microsoft Graph Modules](../Images/graph-modules.png)
+- [Microsoft Graph Authentication](../Images/graph-auth.png)
 
 ## 2. User Inventory
 
@@ -37,7 +40,7 @@
 
 **Observation:** All seven accounts were classified as Members. One account was identified as disabled.
 
-**Evidence:** `user-inventory.png`
+**Evidence:** [User Inventory](../Images/user-inventory.png)
 
 ## 3. Account Status Analysis
 
@@ -51,7 +54,7 @@
 
 **Security Assessment:** The disabled identity requires further examination to determine whether unnecessary group memberships or privileged assignments remain. The disabled status alone does not constitute a security finding.
 
-**Evidence:** `account-status.png`
+**Evidence:** [Account Status Analysis](../Images/account-status.png)
 
 ## 4. Disabled Account Membership Review
 
@@ -66,13 +69,47 @@
 
 **Security Assessment:** The disabled identity retains two group memberships. Further investigation is required to determine whether the memberships confer application access or conflict with offboarding requirements. The dynamic group's membership rule has not yet been reviewed.
 
-**Evidence:** `disabled-account-memberships.png`
+**Evidence:** [Disabled Account Memberships](../Images/disabled-account-memberships.png)
+
+### Contractors Group Verification
+
+**Methodology:** Inspected the Contractors security group in the Microsoft Entra admin center to validate membership and group configuration.
+
+**Results:**
+- Group type: Security
+- Membership type: Assigned
+- Source: Cloud
+- Direct members: 1 (Victor Wemby, disabled)
+- Group owners: 0
+- Nested group memberships: 0
+
+**Security Assessment:** Confirmed that a disabled account retains assigned security group membership. Application access impact and offboarding requirements remain unverified.
+
+**Evidence:** 
+- [Contractors Group Overview](../Images/contractors-group-overview.png)
+- [Contractors Group Members](../Images/contractors-group-members.png)
+
+### Enterprise Application Assignment Review
+
+**Objective:** Determine whether the disabled account's retained group membership is associated with enterprise application access.
+
+**Methodology:** Reviewed enterprise application assignments in the Microsoft Entra admin center and compared them with the disabled account's group memberships.
+
+**Results:**
+- Application: THL Contractor Portal Demo
+- Assigned security group: Contractors
+- Disabled identity: Victor Wemby
+- Authorization path: Victor Wemby → Contractors → THL Contractor Portal Demo
+
+**Security Assessment:** Confirmed that a disabled identity retains group-based application assignment. Current access is not established because the account is disabled. Reactivation may restore authorization without an additional group membership review.
+
+**Evidence:** [Contractor Portal Application Assignment](../Images/contractors-app-assignment.png)
 
 ## 5. Preliminary Findings and Follow-Up
 
 | ID | Observation | Status |
 |---|---|---|
-| OBS-001 | Disabled account retains two group memberships | Pending access impact review |
+| OBS-001 | Disabled account retains group-based enterprise application assignment | Pending access impact and lifecycle review |
 
 No confirmed security vulnerabilities have been established.
 
