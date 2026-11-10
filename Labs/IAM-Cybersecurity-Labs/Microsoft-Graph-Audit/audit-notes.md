@@ -53,19 +53,33 @@
 
 **Evidence:** `account-status.png`
 
-## 4. Preliminary Findings and Follow-Up
+## 4. Disabled Account Membership Review
+
+**Objective:** Identify direct group memberships retained by a disabled account.
+
+**Methodology:** Queried the disabled identity using `Get-MgUserMemberOfAsGroup` to enumerate direct group memberships.
+
+**Results:**
+- Disabled identity: Victor Wemby
+- Direct group memberships: 2
+- Groups: Contractors, All Company (Dynamic)
+
+**Security Assessment:** The disabled identity retains two group memberships. Further investigation is required to determine whether the memberships confer application access or conflict with offboarding requirements. The dynamic group's membership rule has not yet been reviewed.
+
+**Evidence:** `disabled-account-memberships.png`
+
+## 5. Preliminary Findings and Follow-Up
 
 | ID | Observation | Status |
 |---|---|---|
-| OBS-001 | Disabled identity identified for retained-access review | Pending investigation |
+| OBS-001 | Disabled account retains two group memberships | Pending access impact review |
 
 No confirmed security vulnerabilities have been established.
 
-**Next Test:** Review the disabled account's group memberships and privileged access assignments.
-
-## 5. Assessment Limitations
+## 6. Assessment Limitations
 
 - Assessment performed against a simulated tenant containing seven user accounts.
-- Current analysis is limited to identity inventory and account status.
-- Business authorization requirements and offboarding history have not yet been verified.
+- Business authorization requirements and offboarding history have not been verified.
+- Group membership does not independently prove effective application access.
+- Transitive memberships and privileged role assignments have not yet been reviewed.
 - No identity configurations were modified during testing.
